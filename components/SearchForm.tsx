@@ -1,15 +1,25 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 
 export default function SearchForm() {
+  const router = useRouter()
+
   const [from, setFrom] = useState("Bergen")
   const [to, setTo] = useState("Hirtshals")
   const [date, setDate] = useState("2026-03-20")
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    console.log({ from, to, date })
+
+    const query = new URLSearchParams({
+      from,
+      to,
+      date,
+    })
+
+    router.push(`/search?${query.toString()}`)
   }
 
   return (
