@@ -1,8 +1,9 @@
 # Smart Journey
 
-Smart Journey is a small project built with Next.js to explore modern web application architecture.
+Smart Journey is a small Next.js + React demo project that simulates a ferry search experience with filtering and route suggestions.
 
-The app simulates a simple ferry booking experience where users can search for routes, filter the results, and get a suggested trip. The goal of the project is to experiment with features like the Next.js App Router, server and client components, and building clean, structured frontend code.
+The app simulates a ferry search experience where users can search for routes, filter results, and get a suggested trip. The project demonstrates patterns like the Next.js App Router, server and client components, and a clean component-based frontend structure.
+
 
 ---
 
