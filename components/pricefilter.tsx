@@ -17,10 +17,17 @@ export default function PriceFilter({ routes }: PriceFilterProps) {
 
   return (
     <section className="mt-6">
-      <div className="mb-6 rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
-        <label htmlFor="maxPrice" className="block font-medium">
+      <div className="mb-6 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+        <label
+          htmlFor="maxPrice"
+          className="block text-sm font-semibold text-gray-800"
+        >
           Max price: {maxPrice} NOK
         </label>
+
+        <p className="mt-1 text-sm text-gray-600">
+          Use the slider to filter routes by price.
+        </p>
 
         <input
           id="maxPrice"
@@ -30,7 +37,7 @@ export default function PriceFilter({ routes }: PriceFilterProps) {
           step="50"
           value={maxPrice}
           onChange={(e) => setMaxPrice(Number(e.target.value))}
-          className="mt-3 w-full"
+          className="mt-4 w-full"
         />
       </div>
 
@@ -41,31 +48,38 @@ export default function PriceFilter({ routes }: PriceFilterProps) {
           filteredRoutes.map((route) => (
             <article
               key={route.id}
-              className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm"
+              className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:shadow-md"
             >
-              <h3 className="text-lg font-semibold">
-                {route.from} → {route.to}
-              </h3>
+              <div className="flex items-start justify-between gap-4">
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {route.from} → {route.to}
+                </h3>
 
-              <p className="mt-2 text-sm text-gray-600">
-                Departure: {route.departureTime}
-              </p>
+                <span className="rounded-full bg-blue-50 px-3 py-1 text-sm font-semibold text-blue-700">
+                  {route.price} NOK
+                </span>
+              </div>
 
-              <p className="text-sm text-gray-600">
-                Arrival: {route.arrivalTime}
-              </p>
-
-              <p className="mt-3 font-medium">{route.price} NOK</p>
-
-              <p className="text-sm text-gray-500">
-                Seats left: {route.seatsLeft}
-              </p>
+              <div className="mt-4 space-y-2 text-sm text-gray-600">
+                <p>
+                  <span className="font-medium text-gray-800">Departure:</span>{" "}
+                  {route.departureTime}
+                </p>
+                <p>
+                  <span className="font-medium text-gray-800">Arrival:</span>{" "}
+                  {route.arrivalTime}
+                </p>
+                <p>
+                  <span className="font-medium text-gray-800">Seats left:</span>{" "}
+                  {route.seatsLeft}
+                </p>
+              </div>
             </article>
           ))
         ) : (
-          <p className="text-gray-600">
+          <div className="rounded-2xl border border-dashed border-gray-300 bg-white p-6 text-gray-600">
             No routes found for this price range.
-          </p>
+          </div>
         )}
       </div>
     </section>

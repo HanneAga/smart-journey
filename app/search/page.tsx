@@ -19,20 +19,16 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   const routes = await getRoutes(from, to, date)
 
   return (
-    <main style={{ padding: "40px" }}>
-      <h1>Search results</h1>
-
-      <p>
-        <strong>From:</strong> {from}
+    <main>
+      <p className="text-sm font-semibold uppercase tracking-wide text-blue-600">
+        Search results
       </p>
 
-      <p>
-        <strong>To:</strong> {to}
-      </p>
+      <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900">
+        {from} → {to}
+      </h1>
 
-      <p>
-        <strong>Date:</strong> {date}
-      </p>
+      <p className="mt-2 text-gray-600">{date}</p>
 
       <RouteList routes={routes} />
     </main>
