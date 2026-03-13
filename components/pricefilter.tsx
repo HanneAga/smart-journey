@@ -1,6 +1,6 @@
 "use client"
-import AiSuggestion from "@/components/AiSuggestion"
 
+import AiSuggestion from "@/components/AiSuggestion"
 import { useMemo, useState } from "react"
 import { RouteItem } from "@/lib/types"
 
@@ -16,10 +16,10 @@ export default function PriceFilter({ routes }: PriceFilterProps) {
   }, [routes, maxPrice])
 
   return (
-    <section style={{ marginTop: "24px" }}>
-      <div style={{ marginBottom: "24px" }}>
-        <label htmlFor="maxPrice">
-          Max price: <strong>{maxPrice} NOK</strong>
+    <section className="mt-6">
+      <div className="mb-6 rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+        <label htmlFor="maxPrice" className="block font-medium">
+          Max price: {maxPrice} NOK
         </label>
 
         <input
@@ -30,33 +30,44 @@ export default function PriceFilter({ routes }: PriceFilterProps) {
           step="50"
           value={maxPrice}
           onChange={(e) => setMaxPrice(Number(e.target.value))}
-          style={{ display: "block", width: "100%", marginTop: "12px" }}
+          className="mt-3 w-full"
         />
       </div>
-<AiSuggestion routes={filteredRoutes} />
-      {filteredRoutes.length > 0 ? (
-        filteredRoutes.map((route) => (
-          <article
-            key={route.id}
-            style={{
-              border: "1px solid #ddd",
-              borderRadius: "12px",
-              padding: "16px",
-              marginBottom: "16px",
-            }}
-          >
-            <h3>
-              {route.from} → {route.to}
-            </h3>
-            <p>Departure: {route.departureTime}</p>
-            <p>Arrival: {route.arrivalTime}</p>
-            <p>Price: {route.price} NOK</p>
-            <p>Seats left: {route.seatsLeft}</p>
-          </article>
-        ))
-      ) : (
-        <p>No routes found for this price range.</p>
-      )}
+
+      <AiSuggestion routes={filteredRoutes} />
+
+      <div className="grid gap-4 md:grid-cols-2">
+        {filteredRoutes.length > 0 ? (
+          filteredRoutes.map((route) => (
+            <article
+              key={route.id}
+              className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm"
+            >
+              <h3 className="text-lg font-semibold">
+                {route.from} → {route.to}
+              </h3>
+
+              <p className="mt-2 text-sm text-gray-600">
+                Departure: {route.departureTime}
+              </p>
+
+              <p className="text-sm text-gray-600">
+                Arrival: {route.arrivalTime}
+              </p>
+
+              <p className="mt-3 font-medium">{route.price} NOK</p>
+
+              <p className="text-sm text-gray-500">
+                Seats left: {route.seatsLeft}
+              </p>
+            </article>
+          ))
+        ) : (
+          <p className="text-gray-600">
+            No routes found for this price range.
+          </p>
+        )}
+      </div>
     </section>
   )
 }

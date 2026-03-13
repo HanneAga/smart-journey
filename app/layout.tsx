@@ -3,15 +3,21 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Smart Journey",
-  description: "A small Next.js App Router portfolio project.",
+  description: "A Next.js App Router demo project.",
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="bg-gray-100 text-gray-900">
+        <div className="mx-auto max-w-4xl p-6">
+          {children}
+        </div>
+      </body>
     </html>
   )
 }
