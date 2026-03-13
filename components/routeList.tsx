@@ -1,4 +1,4 @@
-import PriceFilter from "@/components/pricefilter"
+import PriceFilter from "@/components/PriceFilter"
 import { RouteItem } from "@/lib/types"
 
 type RouteListProps = {

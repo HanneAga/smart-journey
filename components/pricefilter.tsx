@@ -1,4 +1,5 @@
 "use client"
+import AiSuggestion from "@/components/AiSuggestion"
 
 import { useMemo, useState } from "react"
 import { RouteItem } from "@/lib/types"
@@ -32,7 +33,7 @@ export default function PriceFilter({ routes }: PriceFilterProps) {
           style={{ display: "block", width: "100%", marginTop: "12px" }}
         />
       </div>
-
+<AiSuggestion routes={filteredRoutes} />
       {filteredRoutes.length > 0 ? (
         filteredRoutes.map((route) => (
           <article

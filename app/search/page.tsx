@@ -1,4 +1,4 @@
-import RouteList from "@/components/routeList"
+import RouteList from "@/components/RouteList"
 import { getRoutes } from "@/lib/data"
 
 type SearchPageProps = {
