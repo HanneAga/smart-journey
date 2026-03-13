@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Smart Journey
 
-## Getting Started
+Smart Journey is a small project built with Next.js to explore modern web application architecture.
 
-First, run the development server:
+The app simulates a simple ferry booking experience where users can search for routes, filter the results, and get a suggested trip. The goal of the project is to experiment with features like the Next.js App Router, server and client components, and building clean, structured frontend code.
 
-```bash
+---
+
+## Features
+
+- Search for ferry routes
+- Server-side data fetching
+- Client-side price filtering
+- AI-style route suggestion
+- Loading UI for better user experience
+- Responsive layout with Tailwind CSS
+
+---
+
+## Tech Stack
+
+- Next.js (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+
+---
+
+## Architecture
+
+The project demonstrates a clear separation between server and client responsibilities.
+
+### Server-side
+
+- `app/search/page.tsx`
+  - Reads query parameters
+  - Fetches route data
+
+- `lib/data.ts`
+  - Simulates async data fetching
+
+- `app/api/suggest/route.ts`
+  - Handles the suggestion endpoint
+
+### Client-side
+
+- `components/SearchForm.tsx`
+  - Handles search input and navigation
+
+- `components/PriceFilter.tsx`
+  - Client-side filtering using React state
+
+- `components/AiSuggestion.tsx`
+  - Calls the API endpoint to get a suggested route
+
+---
+
+## Project Structure
+app/
+page.tsx
+search/page.tsx
+search/loading.tsx
+api/suggest/route.ts
+
+components/
+SearchForm.tsx
+RouteList.tsx
+PriceFilter.tsx
+AiSuggestion.tsx
+
+lib/
+data.ts
+types.ts
+
+
+---
+
+## What this project demonstrates
+
+- Next.js App Router structure
+- Server Components vs Client Components
+- Query parameter routing
+- API routes
+- Clean component structure
+- Modern frontend architecture
+
+---
+
+## Run the project locally
+
+Install dependencies:
+
+
+npm install
+
+
+Start the development server:
+
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open the app:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+http://localhost:3000
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Future improvements
 
-## Deploy on Vercel
+Possible next steps for this project:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Connect to a real API instead of mock data
+- Add authentication
+- Improve accessibility
+- Add automated tests
+- Deploy to a cloud platform
